@@ -9,7 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\HospitalCommon\HospitalCommon.csproj" />
+    <ProjectReference Include="..\HospitalDAL\HospitalDAL.csproj" />
   </ItemGroup>
 
 </Project>

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using HospitalCommon.Dtos;
-using HospitalCommon.Contracts;
+using PharmacyCommon.Dtos;
+using PharmacyCommon.Contracts;
 
-namespace Hospital.Controllers
+namespace PharmacyWeb.Controllers
 {
     [Route("api/[controller]")]
     public class UserController : Controller

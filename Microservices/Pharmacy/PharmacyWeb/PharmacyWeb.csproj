@@ -20,9 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HospitalBusinessLogic\HospitalBusinessLogic.csproj" />
-    <ProjectReference Include="..\HospitalCommon\HospitalCommon.csproj" />
-    <ProjectReference Include="..\HospitalDAL\HospitalDAL.csproj" />
+    <ProjectReference Include="..\PharmacyBusinessLogic\PharmacyBusinessLogic.csproj" />
+    <ProjectReference Include="..\PharmacyCommon\PharmacyCommon.csproj" />
+    <ProjectReference Include="..\PharmacyDAL\PharmacyDAL.csproj" />
   </ItemGroup>
 
 </Project>

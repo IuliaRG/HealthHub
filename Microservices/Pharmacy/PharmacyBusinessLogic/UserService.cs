@@ -1,13 +1,13 @@
-﻿using Common.Contracts;
+﻿using PharmacyCommon.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Common.Dtos;
-using Common.Entities;
+using PharmacyCommon.Dtos;
+using PharmacyCommon.Entities;
 using System.Linq;
 using AutoMapper;
 
-namespace BusinessLogic
+namespace PharmacyBusinessLogic
 {
     public class UserService : IUserService
     {

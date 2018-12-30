@@ -8,21 +8,21 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using HospitalDAL;
+using PharmacyDAL;
 using Microsoft.EntityFrameworkCore;
-using HospitalCommon.Contracts;
-using HospitalBusinessLogic;
-using HospitalCommon.Entities;
+using PharmacyCommon.Contracts;
+using PharmacyBusinessLogic;
+using PharmacyCommon.Entities;
 using AutoMapper;
 using Swashbuckle.AspNetCore.Swagger;
-using System.IO;
 using Newtonsoft.Json;
-using HospitalCommon.Dtos;
+using PharmacyCommon.Dtos;
 
-namespace Hospital
+namespace PharmacyWeb
 {
     public class Startup
     {
+
         private readonly IHostingEnvironment _hostingEnvironment;
         public Startup(IConfiguration configuration, IHostingEnvironment hostingEnvironment)
         {
@@ -30,19 +30,19 @@ namespace Hospital
             _hostingEnvironment = hostingEnvironment;
         }
 
-      
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            DBConfiguration result = null;
+            PharmacyCommon.Dtos.DBConfiguration result = null;
             string contentRootPath = _hostingEnvironment.ContentRootPath;
             var JSON = System.IO.File.ReadAllText(contentRootPath + "/App_Data/DBConfiguration.json");
-           
-                result = JsonConvert.DeserializeObject<DBConfiguration>(JSON);
+
+            result = JsonConvert.DeserializeObject<DBConfiguration>(JSON);
             var x = result.Password;
-            
+
             var connection = $"Server=DESKTOP-CA1SMFG\\SQLEXPRESS;Database=HealthHub;Trusted_Connection=True;Integrated Security=False;MultipleActiveResultSets=True;user id={result.User};password={result.Password}";
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<ApplicationDbContext>(options =>

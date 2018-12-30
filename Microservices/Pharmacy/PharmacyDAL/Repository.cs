@@ -1,10 +1,10 @@
-﻿using Common.Contracts;
+﻿using PharmacyCommon.Contracts;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DAL
+namespace PharmacyDAL
 {
     public class Repository<T> : IRepository<T> where T : class
     {

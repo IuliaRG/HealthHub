@@ -1,4 +1,4 @@
-﻿using Common.Entities;
+﻿using PharmacyCommon.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using System;
@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace DAL
+namespace PharmacyDAL
 {
     public class ApplicationDbContext : DbContext
     {
@@ -30,7 +30,7 @@ namespace DAL
         public ApplicationDbContext CreateDbContext(string[] args)
         {
             var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
-            builder.UseSqlServer(@"",
+            builder.UseSqlServer(@"Server=DESKTOP-CA1SMFG\SQLEXPRESS;Database=HealthHub;Trusted_Connection=True;Integrated Security=False;MultipleActiveResultSets=True;user id=sa;password=parola12",
                 optionsBuilder => optionsBuilder.MigrationsAssembly(typeof(ApplicationDbContext).GetTypeInfo().Assembly.GetName().Name));
 
             return new ApplicationDbContext(builder.Options);

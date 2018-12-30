@@ -1,9 +1,9 @@
-﻿using Common.Dtos;
+﻿using PharmacyCommon.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Common.Contracts
+namespace PharmacyCommon.Contracts
 {
     public interface IUserService
     {

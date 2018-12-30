@@ -296,3 +296,5 @@ __pycache__/
 /ForFashion/Web.config
 /ProiectDiploma/App_Data/EmailConfiguration.json
 /ProiectDiploma/App_Data/TextAnalyticsConfiguration.json
+/Microservices/Hospital/HospitalWeb/App_Data/DBConfiguration.json
+/Microservices/Pharmacy/PharmacyWeb/App_Data/DBConfiguration.json

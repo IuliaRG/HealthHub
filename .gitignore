@@ -298,3 +298,4 @@ __pycache__/
 /ProiectDiploma/App_Data/TextAnalyticsConfiguration.json
 /Microservices/Hospital/HospitalWeb/App_Data/DBConfiguration.json
 /Microservices/Pharmacy/PharmacyWeb/App_Data/DBConfiguration.json
+logs

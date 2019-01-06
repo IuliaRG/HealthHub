@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Utils\LoggerService\LoggerService.csproj" />
     <ProjectReference Include="..\HospitalBusinessLogic\HospitalBusinessLogic.csproj" />
     <ProjectReference Include="..\HospitalCommon\HospitalCommon.csproj" />
     <ProjectReference Include="..\HospitalDAL\HospitalDAL.csproj" />

@@ -25,34 +25,30 @@ namespace PharmacyWeb
 {
     public class Startup
     {
-
         private readonly IHostingEnvironment _hostingEnvironment;
+
         public Startup(IConfiguration configuration, IHostingEnvironment hostingEnvironment)
         {
             Configuration = configuration;
             _hostingEnvironment = hostingEnvironment;
         }
 
-
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            PharmacyCommon.Dtos.DBConfiguration result = null;
             string contentRootPath = _hostingEnvironment.ContentRootPath;
             var JSON = System.IO.File.ReadAllText(contentRootPath + "/App_Data/DBConfiguration.json");
-
-            result = JsonConvert.DeserializeObject<DBConfiguration>(JSON);
-            var x = result.Password;
+            DBConfiguration result = JsonConvert.DeserializeObject<DBConfiguration>(JSON);
 
             var connection = $"Server=DESKTOP-CA1SMFG\\SQLEXPRESS;Database=HealthHub;Trusted_Connection=True;Integrated Security=False;MultipleActiveResultSets=True;user id={result.User};password={result.Password}";
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<ApplicationDbContext>(options =>
-        options.UseInMemoryDatabase(connection)
-    );
+                options.UseInMemoryDatabase(connection)
+            );
+
             services.AddAutoMapper();
-           
             services.AddMvc();
             services.AddCors();
             services.AddSwaggerGen(c =>
@@ -61,9 +57,7 @@ namespace PharmacyWeb
             });
 
             services.AddScoped<IRepository<User>, Repository<User>>();
-    
             services.AddTransient<IUserService, UserService>();
-          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -77,11 +71,12 @@ namespace PharmacyWeb
             {
                 app.UseDeveloperExceptionPage();
             }
-                    app.UseSwagger();
-                    app.UseCors(builder => builder
-            .AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader()
+
+            app.UseSwagger();
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
             );
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
             // specifying the Swagger JSON endpoint.

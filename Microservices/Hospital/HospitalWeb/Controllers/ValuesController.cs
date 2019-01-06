@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace Hospital.Controllers
 {
@@ -11,9 +12,10 @@ namespace Hospital.Controllers
     {
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<string> Get([FromServices] ILogger<ValuesController> logger)
         {
-            return new string[] { "value1", "value2" };
+            logger.LogInformation("Get values");
+            return new string[] { "value1", "value21" };
         }
 
         // GET api/values/5

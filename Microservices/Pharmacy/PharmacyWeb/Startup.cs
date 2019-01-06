@@ -17,6 +17,9 @@ using AutoMapper;
 using Swashbuckle.AspNetCore.Swagger;
 using Newtonsoft.Json;
 using PharmacyCommon.Dtos;
+using Microsoft.AspNetCore.Diagnostics;
+using System.Net;
+using Microsoft.AspNetCore.Http;
 
 namespace PharmacyWeb
 {
@@ -86,6 +89,22 @@ namespace PharmacyWeb
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
                // c.RoutePrefix = string.Empty;
+            });
+
+            app.UseExceptionHandler(options =>
+            {
+                options.Run(async context =>
+                {
+                    context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                    context.Response.ContentType = "text/html";
+                    var ex = context.Features.Get<IExceptionHandlerFeature>();
+                    if (ex != null)
+                    {
+                        var err = $"<h1>Error: </h1> An error has occurred please contact the administrator";
+                        Console.WriteLine($"Error: {ex.Error.Message} {ex.Error.StackTrace }");
+                        await context.Response.WriteAsync(err).ConfigureAwait(false);
+                    }
+                });
             });
 
             app.UseMvc();

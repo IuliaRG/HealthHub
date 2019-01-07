@@ -34,11 +34,11 @@ namespace Hospital
 
         public Startup(IConfiguration configuration, IHostingEnvironment hostingEnvironment)
         {
-            LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
             Configuration = configuration;
             _hostingEnvironment = hostingEnvironment;
+            LogManager.LoadConfiguration(String.Concat(_hostingEnvironment.ContentRootPath, "/nlog.config"));
         }
-      
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -70,8 +70,6 @@ namespace Hospital
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

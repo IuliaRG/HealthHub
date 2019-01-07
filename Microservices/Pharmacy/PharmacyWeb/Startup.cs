@@ -20,6 +20,10 @@ using PharmacyCommon.Dtos;
 using Microsoft.AspNetCore.Diagnostics;
 using System.Net;
 using Microsoft.AspNetCore.Http;
+using NLog;
+using System.IO;
+using PharmacyWeb.Extensions;
+using LoggerService;
 
 namespace PharmacyWeb
 {
@@ -31,6 +35,7 @@ namespace PharmacyWeb
         {
             Configuration = configuration;
             _hostingEnvironment = hostingEnvironment;
+            LogManager.LoadConfiguration(String.Concat(_hostingEnvironment.ContentRootPath, "/nlog.config"));
         }
 
         public IConfiguration Configuration { get; }
@@ -58,6 +63,7 @@ namespace PharmacyWeb
 
             services.AddScoped<IRepository<User>, Repository<User>>();
             services.AddTransient<IUserService, UserService>();
+            services.AddSingleton<ILoggerManager, LoggerManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -86,22 +92,7 @@ namespace PharmacyWeb
                // c.RoutePrefix = string.Empty;
             });
 
-            app.UseExceptionHandler(options =>
-            {
-                options.Run(async context =>
-                {
-                    context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                    context.Response.ContentType = "text/html";
-                    var ex = context.Features.Get<IExceptionHandlerFeature>();
-                    if (ex != null)
-                    {
-                        var err = $"<h1>Error: </h1> An error has occurred please contact the administrator";
-                        Console.WriteLine($"Error: {ex.Error.Message} {ex.Error.StackTrace }");
-                        await context.Response.WriteAsync(err).ConfigureAwait(false);
-                    }
-                });
-            });
-
+            app.ConfigureCustomExceptionMiddleware();
             app.UseMvc();
         }
     }

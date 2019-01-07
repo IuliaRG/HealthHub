@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LoggerService;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace PharmacyWeb.Controllers
 {
@@ -12,9 +12,9 @@ namespace PharmacyWeb.Controllers
     {
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get([FromServices] ILogger<ValuesController> logger)
+        public IEnumerable<string> Get([FromServices] ILoggerManager loggerManager)
         {
-            logger.LogInformation("Get values");
+            loggerManager.LogInfo("Get values");
             return new string[] { "value1", "value2" };
         }
 

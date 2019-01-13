@@ -5,28 +5,6 @@ VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{99121701-65AA-41D1-82A8-5EF8D7338299}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{2CBAB11A-A572-4D56-AB8A-4C8310D01F03}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hospital", "Hospital", "{B21B73EA-AD17-44E0-881E-B1A012F37734}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital", "Microservices\Hospital\HospitalWeb\Hospital.csproj", "{F6B3ADC6-3E51-4648-A0E6-42A2275F68DA}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalBusinessLogic", "Microservices\Hospital\HospitalBusinessLogic\HospitalBusinessLogic.csproj", "{7E086D04-3A90-4140-86F5-649D1C17843D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalDAL", "Microservices\Hospital\HospitalDAL\HospitalDAL.csproj", "{B37704A3-BB94-45E2-AF55-A36CA548DD5C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalCommon", "Microservices\Hospital\HospitalCommon\HospitalCommon.csproj", "{74A107B3-E9CF-4594-97FB-9889BA355F52}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PharmacyWeb", "Microservices\Pharmacy\PharmacyWeb\PharmacyWeb.csproj", "{E4721220-814B-4B33-8D5B-E5651855742E}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pharmacy", "Pharmacy", "{CEDBDB03-965C-4C6C-A37D-7B04A663F11C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PharmacyCommon", "Microservices\Pharmacy\PharmacyCommon\PharmacyCommon.csproj", "{2FE51C03-F261-47A0-A836-C8A7AC03FFD6}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PharmacyDAL", "Microservices\Pharmacy\PharmacyDAL\PharmacyDAL.csproj", "{3B4699D9-240D-4F79-B6E6-A0505F53C762}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PharmacyBusinessLogic", "Microservices\Pharmacy\PharmacyBusinessLogic\PharmacyBusinessLogic.csproj", "{4F320FA2-021D-4A39-B1E4-660CC543E973}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateways", "ApiGateways\ApiGateways.csproj", "{11E857E5-A276-4B52-8FAB-A7E4BE7EB140}"
 EndProject
 Global

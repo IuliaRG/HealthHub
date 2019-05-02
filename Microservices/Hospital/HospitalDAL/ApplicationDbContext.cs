@@ -22,6 +22,7 @@ namespace HospitalDAL
         //}
 
         public DbSet<User> User { get; set; }
+         public DbSet<Hospital> Hospital { get; set; }
         
     }
 

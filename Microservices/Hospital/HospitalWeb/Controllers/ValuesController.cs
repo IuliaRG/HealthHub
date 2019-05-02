@@ -11,11 +11,13 @@ namespace Hospital.Controllers
     public class ValuesController : Controller
     {
         // GET api/values
+        private HospitalSender messageToSend = new HospitalSender();
+        private HospitalReciver messageToRecive = new HospitalReciver();
         [HttpGet]
-        public IEnumerable<string> Get([FromServices] ILoggerManager loggerManager)
+        public string Get([FromServices] ILoggerManager loggerManager)
         {
-            loggerManager.LogInfo("Get values");
-            return new string[] { "value1", "value21" };
+            return "jjj";
+            
         }
 
         // GET api/values/5

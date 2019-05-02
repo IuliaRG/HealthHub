@@ -11,11 +11,15 @@ namespace PharmacyWeb.Controllers
     public class ValuesController : Controller
     {
         // GET api/values
+        private PharmacySender messageToSend = new PharmacySender();
+        private PharmacyReciver messageToRecive = new PharmacyReciver();
         [HttpGet]
-        public IEnumerable<string> Get([FromServices] ILoggerManager loggerManager)
+        public string Get([FromServices] ILoggerManager loggerManager)
         {
-            loggerManager.LogInfo("Get values");
-            return new string[] { "value1", "value2" };
+
+            messageToSend.SendRequest();
+            return "aaa";
+          // return messageToRecive.ReciveRequest();
         }
 
         // GET api/values/5

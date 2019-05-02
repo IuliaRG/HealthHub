@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="NLog.Extensions.Logging" Version="1.1.0" />
+    <PackageReference Include="RabbitMQ.Client" Version="5.1.0" />
   </ItemGroup>
 
 </Project>

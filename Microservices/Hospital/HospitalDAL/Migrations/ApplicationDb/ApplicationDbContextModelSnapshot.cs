@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
-namespace HospitalDAL.Migrations
+namespace HospitalDAL.Migrations.ApplicationDb
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -20,9 +20,9 @@ namespace HospitalDAL.Migrations
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Common.Entities.User", b =>
+            modelBuilder.Entity("HospitalCommon.Entities.Patient", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("PatientId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Address");
@@ -33,11 +33,34 @@ namespace HospitalDAL.Migrations
 
                     b.Property<string>("LastName");
 
-                    b.Property<string>("UserName");
+                    b.HasKey("PatientId");
 
-                    b.HasKey("Id");
+                    b.ToTable("Patients");
+                });
 
-                    b.ToTable("User");
+            modelBuilder.Entity("HospitalCommon.Entities.Salon", b =>
+                {
+                    b.Property<int>("SalonId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Number");
+
+                    b.Property<int>("PatientId");
+
+                    b.HasKey("SalonId");
+
+                    b.HasIndex("PatientId")
+                        .IsUnique();
+
+                    b.ToTable("Salons");
+                });
+
+            modelBuilder.Entity("HospitalCommon.Entities.Salon", b =>
+                {
+                    b.HasOne("HospitalCommon.Entities.Patient", "Patient")
+                        .WithOne("Salon")
+                        .HasForeignKey("HospitalCommon.Entities.Salon", "PatientId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

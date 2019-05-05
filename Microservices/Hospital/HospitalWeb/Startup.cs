@@ -54,6 +54,12 @@ namespace Hospital
                 options.UseInMemoryDatabase(connection)
             );
 
+            var connectionGlobalDatabase = $"Server=DESKTOP-CA1SMFG\\SQLEXPRESS;Database=Global;Trusted_Connection=True;Integrated Security=False;MultipleActiveResultSets=True;user id={result.User};password={result.Password}";
+            services.AddDbContext<GlobalDbContext>(options => options.UseSqlServer(connectionGlobalDatabase));
+            services.AddDbContext<GlobalDbContext>(options =>
+                options.UseInMemoryDatabase(connectionGlobalDatabase)
+            );
+
             services.AddAutoMapper();
             services.AddMvc();
             services.AddCors();

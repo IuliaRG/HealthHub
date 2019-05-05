@@ -10,9 +10,9 @@ using System;
 
 namespace HospitalDAL.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181228175350_initial")]
-    partial class initial
+    [DbContext(typeof(GlobalDbContext))]
+    [Migration("20190505154021_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,9 +21,9 @@ namespace HospitalDAL.Migrations
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Common.Entities.User", b =>
+            modelBuilder.Entity("HospitalCommon.Entities.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Address");
@@ -36,9 +36,9 @@ namespace HospitalDAL.Migrations
 
                     b.Property<string>("UserName");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

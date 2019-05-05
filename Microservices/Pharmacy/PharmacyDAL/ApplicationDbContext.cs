@@ -22,7 +22,9 @@ namespace PharmacyDAL
         //}
 
         public DbSet<User> User { get; set; }
-        
+
+        public DbSet<Pharmacy> Pharmacy { get; set; }
+
     }
 
     public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>

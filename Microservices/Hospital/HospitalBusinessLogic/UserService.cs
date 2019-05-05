@@ -25,7 +25,7 @@ namespace HospitalBusinessLogic
             User entityUser = null;
             if (user.Id == null)
             {
-                entityUser = userRepository.GetAll().FirstOrDefault(it => it.Id == user.Id);
+                entityUser = userRepository.GetAll().FirstOrDefault(it => it.UserId == user.Id);
                 var actionItemAreasModels = _mapper
                 .Map<User>(user);
                // entityUser.FromApplicationUserDto(user);
